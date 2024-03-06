@@ -24,4 +24,8 @@ export class MainPageComponent {
     name: 'Xavier',
     power: 10000
   }];
+
+  onNewCharacter(character: Character): void {
+    console.log(character)
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Character } from '../../interfaces/character.interface';
 
 @Component({
@@ -8,6 +8,8 @@ import { Character } from '../../interfaces/character.interface';
 })
 export class AddCharacterComponent {
 
+  @Output()
+  onNewCharacter: EventEmitter<Character> = new EventEmitter;
 
   public character: Character = {
     name: '',
@@ -15,7 +17,17 @@ export class AddCharacterComponent {
   };
 
   addCharacter(): void {
+
+    debugger;
     console.log(this.character.name)
+    if (this.character.name.length == 0) return;
+
+    this.onNewCharacter.emit(this.character);
+
+    //otra forma de realizar el codigo
+    this.character = { name: '', power: 0 }
+    // this.character.name = '';
+    // this.character.power = 0;
   }
 
 }
