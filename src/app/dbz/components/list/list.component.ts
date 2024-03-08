@@ -17,7 +17,6 @@ export class ListComponent {
     power: 10
   }]
 
-
   onDeleteCharacter(id: string): void {
     console.log({ id });
     this.onDelete.emit(id);

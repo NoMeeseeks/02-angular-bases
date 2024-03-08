@@ -12,7 +12,15 @@ export class MainPageComponent {
   }
 
   get characters(): Character[] {
-    return [...this.characters]
+    return [...this.dbzService.characters]
+  }
+
+  onDeleteCharacter(id: string) {
+    this.dbzService.DeleteCharacterById(id);
+  }
+
+  onNewCharacter(character: Character): void {
+    this.dbzService.addCharacter(character);
   }
 
 }
